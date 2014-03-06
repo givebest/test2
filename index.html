@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, width=device-width" />
+<title>html5</title>
+<link href="style/normalize.css"  rel="stylesheet" />
+<link href="style/main.css"  rel="stylesheet" />
+<script src="script/jquery-1.9.1.min.js"></script>
+<script src="script/modernizr.js"></script>
+<script type="text/javascript">
+	Modernizr.load([
+		{
+			test: Modernizr.mq('only all'),	
+			yep: 'script/pass.js',  //检测通过加载
+			nope: ['js/respond.js', 'fail.css'],    //检测失败时加载
+			both: 'js/for-all.js'    //无论何时都加载
+		},
+		{
+			test: Modernizr.mq('screen and (max-width: 600px)'),
+			yep: ['script/jquery-1.9.1.min.js', 'script/jquery.mobilemenu.min.js'],
+			complete: function(){
+				//资源完全加载后运行
+				$(document).ready(function(){
+					$('#mainNav').mobileMenu({
+						switchWidth: 600,        //转换宽度(用PX表示)
+						topOptionText: 'Select a page',    //第一个选项的内容
+						indentString: '&nbsp;&nbsp;&nbsp;'   //缩进嵌套选项的字符串
+					});
+				});
+			}
+		}
+	]);
+</script>
+</head>
+<body>
+<div id="wrapper">  
+
+<div class="star-five sf1"></div>
+
+<div class="star-five sf4"></div>
+
+<div class="star-five sf7"></div>
+
+  <!-- the header and navigation --> 
+  <div id="header">  
+	<h1 class="logo">Yahoo!</h1>
+    <div id="navigation">	
+		  <ul id="mainNav"> 
+			<li class="scale"><a href="#">scale</a></li> 
+			<li class="translate"><a href="#1">translate</a></li>
+			<li class="rotate"><a href="#2">rotate</a></li> 
+			<li class="skew"><a href="#3">skew</a></li> 
+			<li class="matrix"><a href="#4">matrix</a></li>
+			<li class="other"><a href="#5">other</a></li> 
+		  </ul> 
+    </div>
+	
+	<div id="nav2">
+		<ul> 
+			<li class="scale"><a href="#">scale</a></li> 
+			<li class="translate"><a href="#1">translate</a></li>
+			<li class="rotate"><a href="#2">rotate</a></li> 
+			<li class="skew"><a href="#3">skew</a></li> 
+			<li class="matrix"><a href="#4">matrix</a></li>
+			<li class="other"><a href="#5">other</a></li> 
+      </ul> 
+	</div>
+  </div>  
+  <!-- the content --> 
+  <div id="content">  
+    <p>here is the content</p> 
+	<a href="#" id="btn1">Btn1</a>
+
+	<div class="cImg">
+		<div class="face front"><img src="images/yahoo.png" alt="yahoo" /></div>
+		<div class="face back"><h5>HOT!</h5></div>
+	</div>
+  </div> 
+  <!-- the sidebar --> 
+  <div id="sidebar"> 
+    <p>here is the sidebar</p> 
+  </div> 
+  <!-- the footer --> 
+  <div id="footer"> 
+    <p>Here is the footer</p> 
+  </div> 
+ 
+</div>
+</body>
+</html>
